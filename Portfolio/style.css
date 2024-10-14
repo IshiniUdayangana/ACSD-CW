@@ -1,0 +1,197 @@
+*{
+    margin: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#head_logo{
+    border-radius: 100px;
+}
+
+.navigation_bar{
+    width: 100%;
+    display: flex;
+    background-color: rgb(37, 38, 38);
+    height: 60px;
+    position: fixed;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navi_logo{
+    align-items: center;
+    display: flex;
+    
+}
+
+.navi_logo img{
+    width: 40px;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+#navi_name{
+    position: absolute;
+    padding-left: 70px;
+    color: white;
+    font-size: large;
+    
+}
+
+
+.navigation_bar ul{
+    list-style: none;
+    display: flex;
+    
+}
+
+.navigation_bar li{
+    text-decoration: solid;
+    /* padding-inline: 15%; */
+    cursor: pointer;
+    font-size: larger;
+    font-weight: bold;
+
+}
+
+.navi_options ul li a{
+    /* display: block; */
+    padding: 19px 25px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    
+}
+
+
+
+.navi_options{
+    /* padding-left: 750px; */
+    
+}
+
+
+.navigation_bar ul :hover{
+    /* color: blue; */
+    /* background-color: rgba(65, 65, 233, 0.533); */
+    /* height: 30px; */
+    /* border-radius: 8px; */
+    text-decoration: underline;
+}
+
+.navigation_bar ul li a:hover:not(.active){
+    background-color: rgba(44, 55, 151, 0.514);
+}
+
+.navi_options .active{
+    background-color: rgba(73, 183, 251, 0.605);
+}
+
+.active {
+    
+    /* background-color: rgb(8, 56, 139); */
+    
+}
+#check{
+    display: none;
+}
+
+#Home{
+    /* background-color: rgb(193, 167, 218); */
+    padding-top: 100px;
+    padding-left: 30px;
+    height: 1300px;
+    background-color: rgb(15, 15, 15);
+    display: flex;
+}
+
+#profile_photo img{
+    /* margin-top: 100px; */
+    padding: 100px;
+    width: 400px;
+    border-radius: 50%;
+}
+
+#profile_info .name{
+    color: white;
+    font-size: 80px;
+    font-weight: 700;
+    
+}
+
+#profile_info{
+}
+
+#profile_info .greating{
+    color: white;
+    font-size: 50px;
+}
+
+#profile_info .information{
+    color: white;
+    width: 500px;
+    text-align: justify;
+    padding-top: 30px;
+}
+
+#social_media{
+    /* display:flex; */
+    width: 180px;
+}
+
+#social_media a p{
+    padding: 20px;
+    display: inline;
+    color: aqua;
+    text-decoration: none;
+}
+
+#social_media a{
+    text-decoration: none;
+    /* background-color: aqua; */
+}
+
+#social_media img{
+    padding: 3px;
+    background-color: aqua;
+    /* mix-blend-mode: multiply; */
+    border-radius: 50px;
+}
+
+.social_name{
+    display: inline;
+    font-size: larger;
+    padding-left: 10px;
+    /* text-decoration-line: overline; */
+    color: white;
+    /* visibility: hidden; */
+}
+
+#social_media a :hover{
+    visibility: visible;
+}
+
+/* #social_media a{
+    text-decoration: none;
+
+}
+
+#social_media p{
+    text-decoration: none;
+    display: inline;
+    font-size: larger;
+    padding-left: 20px;
+    visibility: hidden;
+
+}*/
+
+#social_media p:hover{
+    color: yellow;
+    visibility: visible;
+    
+} */
+
+#About{
+    background-color: aquamarine;
+    height: 1300px;
+}
+
