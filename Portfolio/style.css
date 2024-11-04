@@ -1,16 +1,18 @@
 *{
     margin: 0%;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: sans-serif;
 }
 
 #head_logo{
     border-radius: 100px;
 }
 
+/* ***************Navigation Bar**************** */
+
 .navigation_bar{
     width: 100%;
     display: flex;
-    background-color: rgb(37, 38, 38);
+    background-color: rgb(48, 83, 95);
     height: 60px;
     position: fixed;
     align-items: center;
@@ -30,7 +32,6 @@
 }
 
 #navi_name{
-    position: absolute;
     padding-left: 70px;
     color: white;
     font-size: large;
@@ -46,7 +47,6 @@
 
 .navigation_bar li{
     text-decoration: solid;
-    /* padding-inline: 15%; */
     cursor: pointer;
     font-size: larger;
     font-weight: bold;
@@ -54,7 +54,6 @@
 }
 
 .navi_options ul li a{
-    /* display: block; */
     padding: 19px 25px;
     text-decoration: none;
     color: white;
@@ -63,62 +62,112 @@
 }
 
 
-
-.navi_options{
-    /* padding-left: 750px; */
-    
-}
-
-
 .navigation_bar ul :hover{
-    /* color: blue; */
-    /* background-color: rgba(65, 65, 233, 0.533); */
-    /* height: 30px; */
-    /* border-radius: 8px; */
     text-decoration: underline;
 }
 
 .navigation_bar ul li a:hover:not(.active){
-    background-color: rgba(44, 55, 151, 0.514);
+    background-color: rgb(61, 96, 110);
 }
 
 .navi_options .active{
-    background-color: rgba(73, 183, 251, 0.605);
+    background-color: rgba(9, 25, 31, 0.505);
 }
 
-.active {
-    
-    /* background-color: rgb(8, 56, 139); */
-    
-}
+/* ******************bx bc-menu********** */
+
 #check{
     display: none;
 }
 
+.icons{
+    display: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+#close-icon{
+    display: none;
+    color: white;
+}
+
+@media (max-width: 768px){
+    .icons{
+        display: inline-flex !important;
+        position: absolute;
+        right: 20px;
+        z-index: 100;
+    }
+
+    #check:checked ~ .icons #menu-icon{
+        display: none;
+    }
+
+    #check:checked ~ .icons #close-icon{
+        display: block;
+    }
+
+    .navi_options{
+        position: absolute;
+        top: 60px;
+        left: -100%;
+        width: 100%;
+        height: auto;
+        background-color: rgb(48, 83, 95);
+        padding: 0;
+        transition: all 0.3s ease;
+    }
+
+    #check:checked ~ .navi_options{
+        left: 0;
+    }
+
+    .navigation_bar ul{
+        display: block;
+        padding: 0;
+        margin: 0;
+    }
+
+    .navigation_bar ul li{
+        margin: 0;
+        width: 100%;
+    }
+
+    .navigation_bar ul li a {
+        padding: 15px 20px;
+        display: block;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* *****************Home**************** */
+
 #Home{
-    /* background-color: rgb(193, 167, 218); */
     padding-top: 100px;
     padding-left: 30px;
-    height: 1300px;
-    background-color: rgb(15, 15, 15);
+    width: 100%;
+    height: 100%;
+    background-color:  rgb( 9, 15, 19);
     display: flex;
 }
 
 #profile_photo img{
-    /* margin-top: 100px; */
     padding: 100px;
     width: 400px;
     border-radius: 50%;
 }
 
+#profile_info{
+    padding-top: 100px;
+    padding-left: 50px;
+}
+
 #profile_info .name{
     color: white;
     font-size: 80px;
-    font-weight: 700;
-    
-}
-
-#profile_info{
+    font-weight: 700; 
 }
 
 #profile_info .greating{
@@ -129,31 +178,71 @@
 #profile_info .information{
     color: white;
     width: 500px;
-    text-align: justify;
+    /* text-align: justify; */
     padding-top: 30px;
 }
 
-#social_media{
-    /* display:flex; */
-    width: 180px;
+#profile_info .anima_text{
+    display: flex;
+    gap: 20px;
+    padding-top: 20px;
 }
 
-#social_media a p{
-    padding: 20px;
-    display: inline;
-    color: aqua;
-    text-decoration: none;
+/* #profile_info .text{
+    font-size: 50px;
+    color: white;
+    display: flex;
+} */
+
+#profile_info .animated_text{
+    /* position: relative; */
+    color: rgb(0, 221, 255);
+    font-size: 50px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid rgb(0, 221, 255);
+    animation: typing 3s steps(16) infinite;
+}
+
+#profile_info .animated_text::after{
+    content: '';
+    position: absolute;
+    animation: blink 0.5s step-endinfinite alternate;
+}
+
+@keyframes typing{
+    0%{width: 0}
+    50%{width: 16ch}
+    100%{width: 16ch}
+    /* from{width: 0}
+    to{width: 350px} */
+}
+
+@keyframes blink{
+    50% {border-color: transparent}
+}
+
+#social_media{
+    margin-top: 210px;
 }
 
 #social_media a{
+    display:flex;
     text-decoration: none;
-    /* background-color: aqua; */
+    padding: 5px;
+}
+
+#social_media a p{
+    width: 50px;
+    padding-top: 20px;
+    padding-left: 10px;
+    color:  rgb(45, 103, 126);
+    opacity: 0;
 }
 
 #social_media img{
     padding: 3px;
-    background-color: aqua;
-    /* mix-blend-mode: multiply; */
+    background-color: rgb(45, 103, 126);
     border-radius: 50px;
 }
 
@@ -161,37 +250,287 @@
     display: inline;
     font-size: larger;
     padding-left: 10px;
-    /* text-decoration-line: overline; */
     color: white;
-    /* visibility: hidden; */
 }
 
-#social_media a :hover{
-    visibility: visible;
+
+#social_media a p:hover{
+    font-weight: bolder;
+    color: rgb(0, 221, 255);
+    opacity: 1;
 }
 
-/* #social_media a{
-    text-decoration: none;
-
+#social_media a img:hover{
+    background-color: rgb(0, 221, 255);
+    transform: translateY(-5px);
 }
-
-#social_media p{
-    text-decoration: none;
-    display: inline;
-    font-size: larger;
-    padding-left: 20px;
-    visibility: hidden;
-
-}*/
-
-#social_media p:hover{
-    color: yellow;
-    visibility: visible;
-    
-} */
 
 #About{
-    background-color: aquamarine;
-    height: 1300px;
+    background-color:  rgb( 9, 15, 19);
+    
 }
 
+/* *********ABOUT******** */
+
+#About{
+    background-color: rgb( 9, 15, 19);
+    width: 100%;
+    display: grid;
+    place-items: center;
+    padding-top: 50px;
+    text-align: center;
+}
+
+#About h3{
+    color: rgb(45, 103, 126);
+    font-size: 30px;
+    padding: 50px;
+}
+
+#About .Personal_info{
+    
+}
+
+#About .Personal_info h2{
+    color: white;
+    font-size: 50px;
+    font-weight: 500;
+}
+
+#About .Personal_info ul{
+    list-style: none;
+    color: white;
+}
+
+#About .Personal_info ul li{
+    display: flex;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    color: rgb(0, 221, 255);
+    gap: 20px;
+}
+
+#About .Personal_info ul li p{
+    font-weight: 500;
+    color: white;
+}
+
+#About .Education ul{
+    color: white;
+    font-size: larger;
+    list-style: none;
+    width: 750px;
+}
+
+#About .Education ul li{
+    padding: 10px;
+    background-color: rgb(61, 96, 110);
+    border-radius: 10px;
+    border-style: solid;
+    border-color: rgb(21, 59, 71);
+    font-size: x-large;
+    font-weight: 700;
+    color: black;
+    margin: 20px;
+    
+}
+
+#About .Education ul dl{
+    font-size: large;
+    padding-top: 10px;
+    padding-left: 50px;
+    color: white;
+}
+
+
+/* ******************PROJECTS*************** */
+
+
+#Projects{
+    background-color: rgb( 9, 15, 19);
+    color: white;
+}
+
+.skill_table{
+    margin: auto;
+}
+
+#Projects .header{
+    font-size: 50px;
+    text-align: center;
+    padding: 50px;
+    font-weight: 500;
+}
+
+#Projects h3{
+    font-size: 30px;
+    color: rgb(45, 103, 126);
+    text-align: center;
+}
+
+#Projects .skills .skill_table{
+    font-size: large;
+    
+}
+
+#Projects .skills .skill_table th{
+    font-size: larger;
+    padding-left: 100px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    padding-right: 100px;
+}
+
+#Projects .skills .skill_table td{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 30px;
+
+}
+
+#Projects .skills .skill_table td img{
+    background-color: rgb(21, 194, 243);
+    margin-right: 10px;
+}
+
+
+/* ******************Contact**************** */
+
+#Contact{
+    width: 100%;
+    background-color: rgb( 9, 15, 19);
+    display: grid;
+    place-items: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+
+.Contact_header{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.Contact_p{
+    padding-right: 20px;
+}
+
+.Contact_p, .Me_p{
+    color: white;
+    font-size: 50px;
+    font-weight: 500;
+}
+
+.Me_p{
+    color: rgb(45, 103, 126);
+}
+
+#Contact .form{
+    align-items: center;
+    justify-content: center;
+    background-color:rgba(20, 25, 27, 0.344);
+    border-radius: 10px;
+    box-shadow:  5px 5px 15px rgba(0, 0, 0, 0.3)
+}
+
+#Contact .form input, textarea{
+    display: block;
+    padding: 10px;
+    margin: 30px;
+    width: 400px;
+    height: 40px;
+    border-width: 4px;
+    border-radius: 10px;
+    border-color: rgb(45, 103, 126);
+    font-size: larger;
+    box-shadow:  5px 5px 15px rgba(0, 0, 0);
+}
+
+textarea{
+    height: 150px;
+}
+
+#Contact .form .btn{
+    height: 50px;
+    width: 100px;
+    font-size: larger;
+    background-color: rgb(45, 103, 126);
+    border-radius: 10px;
+    border-color: lightskyblue;
+    color: white;
+    margin: 20px;
+    margin-bottom: 30px;
+    margin-left: 180px;
+    border-width: 4px;
+    box-shadow: 5px 5px 15px rgb(21, 59, 71);
+}
+
+#Contact .btn:hover{
+    cursor: pointer;
+    background-color: rgba(135, 206, 250, 0.673);
+    box-shadow: 2px 2px 25px rgb(0, 221, 255);
+}
+
+/* ********************BACK TO HOME******************* */
+
+.back-to-home{
+    background-color: rgb( 9, 15, 19);
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.back-to-home a{
+    position: ;
+}
+
+.back-to-home img{
+    background-color: aqua;
+    width: 50px;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+
+/* **************Footer***************** */
+
+footer{
+    background-color: rgb(48, 83, 95);
+    width: 100%;
+    height: 200px;
+}
+
+#footer_social{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+#footer_social a{
+    padding: 20px;
+}
+
+#footer_social img{
+    background-color:  rgb(21, 194, 243);
+    border-radius: 50px;
+    padding: 3px;
+}
+
+.copyright{
+    color: white;
+    text-align: center;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+.script{
+    font-family: 'Dancing Script';
+    font-weight: 600;
+    font-size: large;
+    text-align: center;
+    color: white;
+    padding: 10px;
+}
