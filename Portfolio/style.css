@@ -22,7 +22,7 @@
 .navi_logo{
     align-items: center;
     display: flex;
-    
+    padding-left: 40px;
 }
 
 .navi_logo img{
@@ -35,7 +35,7 @@
     padding-left: 70px;
     color: white;
     font-size: large;
-    
+    margin-left: -60px;
 }
 
 
@@ -66,6 +66,12 @@
     text-decoration: underline;
 }
 
+#menu-toggle{
+    display: none;
+}
+
+
+/* Negation Pseudo class */
 .navigation_bar ul li a:hover:not(.active){
     background-color: rgb(61, 96, 110);
 }
@@ -74,73 +80,41 @@
     background-color: rgba(9, 25, 31, 0.505);
 }
 
-/* ******************bx bc-menu********** */
 
-#check{
-    display: none;
+/* Attribute Selectors */
+a[target="_blank"] {
+    color: rgb(0, 221, 255);
+    text-decoration: underline;
 }
 
-.icons{
-    display: none;
-    color: white;
-    font-size: 28px;
+input[type="text"] {
+    background-color: rgb(235, 235, 235);
+    border: 1px solid rgb(45, 103, 126);
+}
+
+/* Validity Pseudo class */
+
+input:valid {
+    border-color: rgb(45, 103, 126);
+}
+
+input:invalid {
+    border-color: rgb(255, 0, 0);
+}
+
+.hamburger {
+    display: none; /* Hide by default */
+    flex-direction: column;
     cursor: pointer;
-    margin-right: 20px;
 }
 
-#close-icon{
-    display: none;
-    color: white;
+.bar {
+    height: 4px;
+    width: 25px;
+    background-color: white;
+    margin: 3px 0;
 }
 
-@media (max-width: 768px){
-    .icons{
-        display: inline-flex !important;
-        position: absolute;
-        right: 20px;
-        z-index: 100;
-    }
-
-    #check:checked ~ .icons #menu-icon{
-        display: none;
-    }
-
-    #check:checked ~ .icons #close-icon{
-        display: block;
-    }
-
-    .navi_options{
-        position: absolute;
-        top: 60px;
-        left: -100%;
-        width: 100%;
-        height: auto;
-        background-color: rgb(48, 83, 95);
-        padding: 0;
-        transition: all 0.3s ease;
-    }
-
-    #check:checked ~ .navi_options{
-        left: 0;
-    }
-
-    .navigation_bar ul{
-        display: block;
-        padding: 0;
-        margin: 0;
-    }
-
-    .navigation_bar ul li{
-        margin: 0;
-        width: 100%;
-    }
-
-    .navigation_bar ul li a {
-        padding: 15px 20px;
-        display: block;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-}
 
 /* *****************Home**************** */
 
@@ -151,6 +125,9 @@
     height: 100%;
     background-color:  rgb( 9, 15, 19);
     display: flex;
+
+    /* Gradient */
+    background: linear-gradient(to right, rgb(9, 15, 19), rgb(38, 64, 72));
 }
 
 #profile_photo img{
@@ -159,10 +136,31 @@
     border-radius: 50%;
 }
 
+#profile_photo img:hover{
+    transform: scale(1.1);
+}
+
 #profile_info{
     padding-top: 100px;
     padding-left: 50px;
 }
+
+
+/* Pseudo elements */
+#profile_info .name::before {
+    /* Generated Content */
+    content: "Hello, I'm";
+    color: rgb(45, 103, 126);
+    font-size: 50px;
+}
+
+
+/* Relational Selector */
+#profile_info .name + .greating {
+    font-size: 60px;
+    color: rgb(45, 103, 126);
+}
+
 
 #profile_info .name{
     color: white;
@@ -178,7 +176,6 @@
 #profile_info .information{
     color: white;
     width: 500px;
-    /* text-align: justify; */
     padding-top: 30px;
 }
 
@@ -188,14 +185,10 @@
     padding-top: 20px;
 }
 
-/* #profile_info .text{
-    font-size: 50px;
-    color: white;
-    display: flex;
-} */
+
+/* Animation */
 
 #profile_info .animated_text{
-    /* position: relative; */
     color: rgb(0, 221, 255);
     font-size: 50px;
     white-space: nowrap;
@@ -210,12 +203,12 @@
     animation: blink 0.5s step-endinfinite alternate;
 }
 
+
+/* Animation */
 @keyframes typing{
     0%{width: 0}
     50%{width: 16ch}
     100%{width: 16ch}
-    /* from{width: 0}
-    to{width: 350px} */
 }
 
 @keyframes blink{
@@ -231,6 +224,13 @@
     text-decoration: none;
     padding: 5px;
 }
+
+
+/* Nth Pseudo class */
+#social_media a:nth-child(odd) img {
+    background-color: rgb(61, 96, 110);
+}
+
 
 #social_media a p{
     width: 50px;
@@ -265,10 +265,6 @@
     transform: translateY(-5px);
 }
 
-#About{
-    background-color:  rgb( 9, 15, 19);
-    
-}
 
 /* *********ABOUT******** */
 
@@ -278,7 +274,6 @@
     display: grid;
     place-items: center;
     padding-top: 50px;
-    text-align: center;
 }
 
 #About h3{
@@ -287,14 +282,17 @@
     padding: 50px;
 }
 
-#About .Personal_info{
-    
+
+/* Child Combinator */
+#About > h3{
+    font-weight: 400;
 }
 
 #About .Personal_info h2{
     color: white;
     font-size: 50px;
     font-weight: 500;
+    text-align: center;
 }
 
 #About .Personal_info ul{
@@ -343,6 +341,53 @@
     color: white;
 }
 
+/* Structural Selector */
+#About .Education ul li:first-child {
+    font-weight: bold;
+    background-color: rgb(48, 83, 95);
+}
+
+#Projects .blogs .blog:last-child {
+    border: 2px solid rgb(0, 221, 255);
+}
+
+
+.skill_table{
+    margin: auto;
+    color: white;
+}
+
+#About h3{
+    font-size: 30px;
+    color: rgb(45, 103, 126);
+    text-align: center;
+}
+
+#About .skills .skill_table{
+    font-size: large;
+}
+
+#About .skills .skill_table th{
+    font-size: larger;
+    padding-left: 100px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    padding-right: 100px;
+}
+
+#About .skills .skill_table td{
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 30px;
+
+}
+
+#About .skills .skill_table td img{
+    background-color: rgb(21, 194, 243);
+    margin-right: 10px;
+}
+
+
 
 /* ******************PROJECTS*************** */
 
@@ -352,9 +397,13 @@
     color: white;
 }
 
-.skill_table{
-    margin: auto;
+#Projects h3{
+    font-size: 30px;
+    color: rgb(45, 103, 126);
+    text-align: center;
 }
+
+
 
 #Projects .header{
     font-size: 50px;
@@ -363,35 +412,53 @@
     font-weight: 500;
 }
 
-#Projects h3{
-    font-size: 30px;
-    color: rgb(45, 103, 126);
-    text-align: center;
-}
 
-#Projects .skills .skill_table{
-    font-size: large;
+#Projects .blogs{
+    display: flex;
     
 }
 
-#Projects .skills .skill_table th{
+#Projects a{
+    color: white;
+}
+
+#Projects a p{
+    text-align: center;
+}
+
+#Projects .blogs .blog{
+    padding: 20px;
+    background-color: rgb(21, 59, 71);
+    border-radius: 20px;
+    margin: 40px;
+    box-shadow: 5px 5px 15px rgba(41, 84, 111, 0.578);
+}
+
+#Projects .blogs .blog img{
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+}
+
+#Projects .blog .topic{
+    text-align: center;
     font-size: larger;
-    padding-left: 100px;
-    padding-top: 50px;
-    padding-bottom: 30px;
-    padding-right: 100px;
+    padding: 10px;
 }
 
-#Projects .skills .skill_table td{
-    padding-left: 100px;
-    padding-right: 100px;
-    padding-bottom: 30px;
-
+#Projects .blogs .blog :hover{
+    transition: cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-#Projects .skills .skill_table td img{
-    background-color: rgb(21, 194, 243);
-    margin-right: 10px;
+#Projects .blog .date{
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+
+/* Transform */
+#Projects .blogs .blog:hover{
+    transform: scale(1.1);
 }
 
 
@@ -448,6 +515,13 @@
     box-shadow:  5px 5px 15px rgba(0, 0, 0);
 }
 
+/* Action Pseude-class */
+#Contact .form input:focus {
+    border-color: rgb(0, 221, 255);
+    box-shadow: 0 0 10px rgba(0, 221, 255, 0.5);
+}
+
+
 textarea{
     height: 150px;
 }
@@ -482,8 +556,8 @@ textarea{
     padding: 20px;
 }
 
-.back-to-home a{
-    position: ;
+.back-to-home img:hover{
+    transform: scale(1.1);
 }
 
 .back-to-home img{
@@ -524,7 +598,6 @@ footer{
     text-align: center;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
 
 .script{
     font-family: 'Dancing Script';
@@ -534,3 +607,360 @@ footer{
     color: white;
     padding: 10px;
 }
+
+
+
+/* Media queries for the home page */
+
+
+/* Small screens (up to 768px) */
+@media (max-width: 768px) {
+    #Home {
+      flex-direction: column;
+      padding-top: 50px;
+      padding-left: 20px;
+    }
+  
+    #profile_photo img {
+      padding: 50px;
+      width: 150px;
+    }
+  
+    #profile_info {
+      padding-top: 50px;
+      padding-left: 0;
+    }
+  
+    #profile_info .name {
+      font-size: 60px;
+    }
+  
+    #profile_info .greating,
+    #profile_info .animated_text {
+      font-size: 40px;
+    }
+  
+    #profile_info .information {
+      width: 100%;
+      padding-top: 20px;
+    }
+  
+    #social_media {
+      margin-top: 50px;
+      display: flex;
+    }
+
+    #social_media a p{
+        display: none;
+    }
+
+    #social_media a img{
+        margin: 20px;
+    }
+  }
+
+  @media (max-width: 600px){
+    #social_media a p{
+        display: none;
+    }
+
+    #social_media a img{
+        margin: 10px;
+    }
+  }
+  
+  /* Medium screens (up to 1024px) */
+  @media (max-width: 1024px) {
+    #profile_photo img {
+      width: 250px;
+    }
+  
+    #profile_info .name {
+      font-size: 70px;
+    }
+  
+    #profile_info .greating,
+    #profile_info .animated_text {
+      font-size: 45px;
+    }
+  
+    #profile_info .information {
+      width: 400px;
+    }
+  }
+
+  
+  
+  /* Large screens (above 1024px) */
+  @media (min-width: 1025px) {
+    #Home {
+      padding-top: 100px;
+      padding-left: 30px;
+    }
+  
+    #profile_photo img {
+      padding: 100px;
+      width: 400px;
+    }
+  
+    #profile_info {
+      padding-top: 100px;
+      padding-left: 50px;
+    }
+  
+    #profile_info .name {
+      font-size: 80px;
+    }
+  
+    #profile_info .greating,
+    #profile_info .animated_text {
+      font-size: 50px;
+    }
+  
+    #profile_info .information {
+      width: 500px;
+      padding-top: 30px;
+    }
+  
+    #social_media {
+      margin-top: 210px;
+    }
+  }
+
+  @media (min-width: 1250px) {
+    .profile_photo img{
+        display: contents;
+    }
+  }
+
+/* Media queries for the Contact page */
+
+@media (max-width: 1024px) {
+    .Contact_p, .Me_p {
+        font-size: 40px;
+    }
+
+    #Contact .form input,
+    textarea {
+        max-width: 350px;
+        margin: 10px 0;
+    }
+
+    #Contact .form .btn {
+        width: 90px;
+    }
+}
+
+@media (max-width: 768px) {
+    .Contact_p, .Me_p {
+        font-size: 35px;
+    }
+
+    #Contact .form input,
+    textarea {
+        max-width: 300px;
+    }
+
+    #Contact .form .btn {
+        width: 80px;
+    }
+
+}
+
+@media (max-width: 850px) {
+    .Contact_table,
+    .Contact_table tr,
+    .Contact_table td {
+        display: block;
+        width: 100%;
+    }
+
+    .Contact_table td {
+        margin-bottom: 20px; 
+    }
+
+    .Contact_table {
+        border: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .Contact_p, .Me_p {
+        font-size: 30px;
+        padding-right: 10px;
+    }
+}
+
+/* Media queries for the About page */
+
+@media (max-width: 992px) {
+    #About .Personal_info h2 {
+        font-size: 40px;
+    }
+    #About h3 {
+        font-size: 25px;
+    }
+    #About .Personal_info ul li {
+        font-size: 18px;
+        padding: 15px;
+    }
+    #About .Education ul {
+        width: 600px;
+    }
+    #About .Education ul li {
+        font-size: large;
+    }
+    #About .skills .skill_table th, #About .skills .skill_table td {
+        padding: 20px 80px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    #About {
+        padding-top: 30px;
+    }
+    #About .Personal_info h2 {
+        font-size: 35px;
+    }
+    #About h3 {
+        font-size: 22px;
+        padding: 20px;
+    }
+    #About .Personal_info ul li {
+        font-size: 16px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #About .Education ul {
+        width: 100%;
+        padding: 0 20px;
+    }
+    #About .Education ul li {
+        font-size: medium;
+    }
+    #About .skills .skill_table {
+        font-size: medium;
+    }
+    #About .skills .skill_table th, #About .skills .skill_table td {
+        padding: 15px 20px;
+    }
+}
+
+/* Smartphone */
+@media (max-width: 576px) {
+    #About .Personal_info h2 {
+        font-size: 28px;
+    }
+    #About h3 {
+        font-size: 20px;
+        padding: 10px;
+    }
+    #About .Personal_info ul li {
+        font-size: 14px;
+    }
+    #About .Education ul li {
+        font-size: small;
+        padding: 8px;
+    }
+    #About .skills .skill_table th, #About .skills .skill_table td {
+        font-size: small;
+        padding: 10px;
+    }
+    #About .skills .skill_table td img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+
+/* Media queries for the Project page */
+
+@media (max-width: 768px) {
+    #Projects .blogs {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    #Projects .blogs .blog {
+        width: 90%;
+        max-width: 500px;
+        margin: 20px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    #Projects .blogs {
+        display: grid;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    #Projects .blog {
+        max-width: 90%;
+        margin: auto;
+        text-align: center;
+    }
+
+    #Projects .blog img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+}
+
+
+/* Media queries for the navigation bar */
+
+@media (max-width: 768px) {
+    .navi_options {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: rgb(48, 83, 95);
+        text-align: center;
+        padding: 20px;
+    }
+
+    .navi_options ul {
+        flex-direction: column; 
+        width: 100%;
+    }
+
+    .navi_options ul li{
+        padding-bottom: 30px;
+    }
+
+    #menu-toggle:checked + .hamburger + .navi_options {
+        display: flex; 
+    }
+
+    .hamburger {
+        display: flex; 
+        padding-right: 20px;
+    }
+
+    .navigation_bar ul li a:hover:not(.active){
+        
+    }
+    
+    .navi_options .active{
+        background-color: rgb(48, 83, 95);
+    }
+    
+}
+
+@media (min-width: 769px) {
+    .navi_options {
+        display: flex;
+        position: static;
+    }
+
+    .hamburger {
+        display: none;
+    }
+}
+
